@@ -1,3 +1,12 @@
+const pageDivId = document.currentScript.getAttribute('containerDIV') || null;
+if (pageDivId == null) {
+    throw new Error('You must specify the page container to be hidden if not logged in. For instance: <script src="requireMissionary.js" containerDiv="mainPage"></script>');
+}
+const pageDIV = document.getElementById(pageDivId).cloneNode(true);
+document.getElementById(pageDivId).remove();
+
+// to put it back: document.body.prepend(pageDIV);
+
 document.write('<script src="https://accounts.google.com/gsi/client" async defer></script><script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>');
 
 function handleGoogleLogin(response) {
