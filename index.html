@@ -1,22 +1,8 @@
 <script src="https://accounts.google.com/gsi/client" async defer></script>
-<!--<div id="g_id_onload"
+<div id="g_id_onload"
      data-client_id="586912630163-r9jcchrhcc8scts2sngcb325va5u0hkj.apps.googleusercontent.com"
      data-context="signin"
      data-login_uri="https://www.httpbin.org/post"
      data-auto_select="false"
      data-itp_support="true">
 </div>
--->
-<script>
-  window.onload = function () {
-    google.accounts.id.initialize({
-      client_id: '586912630163-r9jcchrhcc8scts2sngcb325va5u0hkj.apps.googleusercontent.com',
-      callback: handleCredentialResponse
-    });
-    google.accounts.id.prompt();
-  };
-function handleCredentialResponse(e) {
-    console.log('logged in!');
-     console.log(e);
-}
-</script>
