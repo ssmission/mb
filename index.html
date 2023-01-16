@@ -1,10 +1,38 @@
-<script src="https://accounts.google.com/gsi/client" async defer></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSMissionary</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- new id: 586912630163-r9jcchrhcc8scts2sngcb325va5u0hkj.apps.googleusercontent.com -->
+</head>
+<body>
+
 <div id="g_id_onload"
      data-client_id="1032123159845-v6r228c1sb4su1gdck40a2kctu8k8riu.apps.googleusercontent.com"
      data-context="signin"
-     data-login_uri="https://www.httpbin.org/post"
-     data-auto_select="false"
+     data-callback="handleGoogleLogin"
      data-itp_support="true">
 </div>
 
-<!-- new id: 586912630163-r9jcchrhcc8scts2sngcb325va5u0hkj.apps.googleusercontent.com -->
+<script>
+function handleGoogleLogin(response) {
+     // decodeJwtResponse() is a custom function defined by you
+     // to decode the credential response.
+     console.log(response);
+     const responsePayload = decodeJwtResponse(response.credential);
+
+     console.log("ID: " + responsePayload.sub);
+     console.log('Full Name: ' + responsePayload.name);
+     console.log('Given Name: ' + responsePayload.given_name);
+     console.log('Family Name: ' + responsePayload.family_name);
+     console.log("Image URL: " + responsePayload.picture);
+     console.log("Email: " + responsePayload.email);
+}
+</script>
+
+
+</body>
+</html>
