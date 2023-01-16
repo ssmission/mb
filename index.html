@@ -10,8 +10,6 @@
 </head>
 <body>
 
-<div id="google_btn"></div>
-
 <script>
 function handleGoogleLogin(response) {
     // decodeJwtResponse() is a custom function defined by you
@@ -28,16 +26,19 @@ function handleGoogleLogin(response) {
     alert("Email: " + responsePayload.email);
 }
 window.onload = function () {
+    console.log('1');
     google.accounts.id.initialize({
         client_id: '1032123159845-v6r228c1sb4su1gdck40a2kctu8k8riu.apps.googleusercontent.com',
         callback: handleGoogleLogin
     });
+    console.log('2');
     google.accounts.id.prompt((notification) => {
         if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
             document.cookie =  `g_state=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT`;
             google.accounts.id.prompt();
         }
     });
+    console.log('3');
 }
 </script>
 
