@@ -13,20 +13,6 @@
 <div id="google_btn"></div>
 
 <script>
-window.onload = function () {
-    window.onload = function () {
-        google.accounts.id.initialize({
-            client_id: '1032123159845-v6r228c1sb4su1gdck40a2kctu8k8riu.apps.googleusercontent.com',
-            callback: handleGoogleLogin
-        });
-        google.accounts.id.prompt((notification) => {
-            if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
-                document.cookie =  `g_state=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT`;
-                google.accounts.id.prompt();
-            }
-        });
-    }
-}
 function handleGoogleLogin(response) {
     // decodeJwtResponse() is a custom function defined by you
     // to decode the credential response.
@@ -40,6 +26,18 @@ function handleGoogleLogin(response) {
     console.log("Image URL: " + responsePayload.picture);
     console.log("Email: " + responsePayload.email);
     alert("Email: " + responsePayload.email);
+}
+window.onload = function () {
+    google.accounts.id.initialize({
+        client_id: '1032123159845-v6r228c1sb4su1gdck40a2kctu8k8riu.apps.googleusercontent.com',
+        callback: handleGoogleLogin
+    });
+    google.accounts.id.prompt((notification) => {
+        if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+            document.cookie =  `g_state=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT`;
+            google.accounts.id.prompt();
+        }
+    });
 }
 </script>
 
