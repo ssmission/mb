@@ -33,9 +33,12 @@ window.onload = function () {
     });
     console.log('2');
     google.accounts.id.prompt((notification) => {
+        console.log('1.1');
         if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+            console.log('1.2');
             document.cookie =  `g_state=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT`;
             google.accounts.id.prompt();
+            console.log('1.3');
         }
     });
     console.log('3');
