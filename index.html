@@ -30,7 +30,15 @@ window.onload = function () {
         callback: handleGoogleLogin
     });
     const parent = document.getElementById('google_btn');
-    google.accounts.id.renderButton(parent, {theme: "filled_blue"});
+    google.accounts.id.renderButton(parent, {
+        theme: "filled_blue",
+        type: "standard",
+        shape: "rectangular",
+        theme: "outline",
+        text: "continue_with",
+        size: "large",
+        logo_alignment: "left"
+    });
     google.accounts.id.prompt();
 }
 </script>
