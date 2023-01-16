@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<div id="google_btn"></div>
+
 <script>
 function handleGoogleLogin(response) {
     console.log(response);
@@ -25,6 +25,9 @@ function handleGoogleLogin(response) {
     alert("Email: " + responsePayload.email);
 }
 window.onload = function () {
+    const gBtn = document.createElement('DIV');
+    gBtn.id = 'google_btn';
+    document.body.prepend(gBtn);
     google.accounts.id.initialize({
         client_id: '1032123159845-v6r228c1sb4su1gdck40a2kctu8k8riu.apps.googleusercontent.com',
         callback: handleGoogleLogin
