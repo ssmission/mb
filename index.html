@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SSMissionary</title>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
     <!-- new id: 586912630163-r9jcchrhcc8scts2sngcb325va5u0hkj.apps.googleusercontent.com -->
 </head>
 <body>
@@ -22,7 +23,7 @@ function handleGoogleLogin(response) {
      // decodeJwtResponse() is a custom function defined by you
      // to decode the credential response.
      console.log(response);
-     const responsePayload = decodeJwtResponse(response.credential);
+     const responsePayload = jwt_decode(response.credential);
 
      console.log("ID: " + responsePayload.sub);
      console.log('Full Name: ' + responsePayload.name);
