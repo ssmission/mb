@@ -68,8 +68,13 @@ function setUserInfoOnPage() {
     setAllValues('ssmUser.email', ssmUser.email);
 
     // set logout button(s)
-    document.getElementsByClassName('.ssmUser.logout').forEach(el => {
+    document.querySelectorAll('.ssmUser.logout').forEach(el => {
         el.onclick = LogoutOfSSM_MissionaryAccount;
+    });
+}
+function setAllValues(s, val) {
+    document.querySelectorAll('.' + s).forEach(el => {
+        el.innerHTML = val;
     });
 }
 
@@ -102,11 +107,6 @@ function handleGoogleLogin(response) {
 }
 function LogoutOfSSM_MissionaryAccount() {
     alert('logging out... at some point');
-}
-function setAllValues(s, val) {
-    document.getElementsByClassName('.' + s).forEach(el => {
-        el.innerHTML = val;
-    });
 }
 function startGoogleSignIn() {
     const gBtn = document.createElement('DIV');
