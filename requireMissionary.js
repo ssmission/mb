@@ -20,18 +20,6 @@ function getCookie(cname) {
     return "";
 }
 
-function checkCookie() {
-    let user = getCookie("username");
-    if (user != "") {
-        alert("Welcome again " + user);
-    } else {
-        user = prompt("Please enter your name:", "");
-        if (user != "" && user != null) {
-            setCookie("username", user, 365);
-        }
-    }
-}
-
 const pageDivId = document.currentScript.getAttribute('containerDIV') || null;
 if (pageDivId == null) {
     throw new Error('You must specify the page container to be hidden if not logged in. For instance: <script src="requireMissionary.js" containerDiv="mainPage"></script>');
