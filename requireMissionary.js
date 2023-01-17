@@ -40,7 +40,8 @@ window.onload = function () {
                 theme: "outline",
                 text: "continue_with",
                 size: "large",
-                logo_alignment: "left"
+                logo_alignment: "left",
+                cancel_on_tap_outside: "false"
             });
             google.accounts.id.prompt();
         }
