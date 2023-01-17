@@ -18,7 +18,7 @@ function handleGoogleLogin(response) {
         // set images and stuff like that to see that their logged in
     } else {
         // clear login cookies
-        document.write('<h2>Access Denied</h2><br><br>Sorry, you don\'t have access to this page. If you beleive this is a mistake, try <a href=".">logging in again</a>');
+        document.write('<h2>Access Denied</h2><br><br>Sorry, you don\'t have access to this page because you\'re not a missionary. If you beleive this is a mistake, try <a href=".">logging in again with your missionary account</a>');
     }
 }
 window.onload = function () {
