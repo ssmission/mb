@@ -14,6 +14,7 @@ function handleGoogleLogin(response) {
     if (responsePayload.email.split('@')[1].toLowerCase().includes('missionary.org') || responsePayload.email.split('@')[1].toLowerCase().includes('churchofjesuschrist.org')) {
         document.body.prepend(pageDIV);
         document.getElementById(pageDivId).style.display = "";
+        document.getElementById('google_btn').remove();
         // set images and stuff like that to see that their logged in
     } else {
         alert("Sorry, you don't have access to this page. If you beleive this is a mistake, try logging in again");
