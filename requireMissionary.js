@@ -29,15 +29,20 @@ window.onload = function () {
         client_id: '586912630163-r9jcchrhcc8scts2sngcb325va5u0hkj.apps.googleusercontent.com',
         callback: handleGoogleLogin
     });
-    const parent = document.getElementById('google_btn');
-    google.accounts.id.renderButton(parent, {
-        theme: "filled_blue",
-        type: "standard",
-        shape: "rectangular",
-        theme: "outline",
-        text: "continue_with",
-        size: "large",
-        logo_alignment: "left"
+    google.accounts.id.prompt((notification) => {
+        if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+            // try next provider if OneTap is not displayed or skipped
+            const parent = document.getElementById('google_btn');
+            google.accounts.id.renderButton(parent, {
+                theme: "filled_blue",
+                type: "standard",
+                shape: "rectangular",
+                theme: "outline",
+                text: "continue_with",
+                size: "large",
+                logo_alignment: "left"
+            });
+            google.accounts.id.prompt();
+        }
     });
-    google.accounts.id.prompt();
 }
