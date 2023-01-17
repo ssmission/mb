@@ -80,7 +80,9 @@ function setAllValues(s, val) {
     }
 }
 function LogoutOfSSM_MissionaryAccount() {
-    alert('logging out... at some point');
+    ssmUser = {};
+    setCookie('ssmUser', '');
+    location.reload();
 }
 
 function handleGoogleLogin(response) {
