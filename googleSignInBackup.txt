@@ -3,12 +3,12 @@ working sign in with google:
 HEAD:
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
-<!-- new id: 586912630163-r9jcchrhcc8scts2sngcb325va5u0hkj.apps.googleusercontent.com -->
+<!-- old id: 1032123159845-v6r228c1sb4su1gdck40a2kctu8k8riu.apps.googleusercontent.com -->
 
 
 BODY:
 <div id="g_id_onload"
-     data-client_id="1032123159845-v6r228c1sb4su1gdck40a2kctu8k8riu.apps.googleusercontent.com"
+     data-client_id="586912630163-r9jcchrhcc8scts2sngcb325va5u0hkj.apps.googleusercontent.com"
      data-context="signin"
      data-callback="handleGoogleLogin"
      data-itp_support="true">
