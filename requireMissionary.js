@@ -52,6 +52,8 @@ if (mustLogIn) {
         object-fit: contain;
     }
     </style>` + document.head.innerHTML;
+} else {
+    document.getElementById(pageDivId).style.display = "";
 }
 
 
