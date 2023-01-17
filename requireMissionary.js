@@ -5,17 +5,19 @@ if (pageDivId == null) {
 const pageDIV = document.getElementById(pageDivId).cloneNode(true);
 document.getElementById(pageDivId).remove();
 
-// to put it back: document.body.prepend(pageDIV);
-
 document.write('<script src="https://accounts.google.com/gsi/client" async defer></script><script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>');
+
 
 function handleGoogleLogin(response) {
     console.log(response);
     const responsePayload = jwt_decode(response.credential);
     if (responsePayload.email.split('@')[1].toLowerCase().includes('missionary.org') || responsePayload.email.split('@')[1].toLowerCase().includes('churchofjesuschrist.org')) {
-        alert('good');
+        document.body.prepend(pageDIV);
+        document.getElementById(pageDivId).style.display = "";
+        // set images and stuff like that to see that their logged in
     } else {
-        alert('no-good');
+        alert("Sorry, you don't have access to this page. If you beleive this is a mistake, try logging in again");
+        document.write("Sorry, you don't have access to this page. If you beleive this is a mistake, try logging in again");
     }
 }
 window.onload = function () {
