@@ -27,10 +27,12 @@ let ssmUserStr = getCookie('ssmUser');
 let ssmUser = {};
 let mustLogIn = true;
 if (ssmUserStr != '') {
-    ssmUser = JSON.parse(ssmUserStr);
-    if (ssmUser.email.toLowerCase().includes('@missionary.org')) {
-        mustLogIn = false;
-    }
+    try {
+        ssmUser = JSON.parse(ssmUserStr);
+        if (ssmUser.email.toLowerCase().includes('@missionary.org')) {
+            mustLogIn = false;
+        }
+    } catch (e) {}
 }
 
 const pageDivId = document.currentScript.getAttribute('containerDIV') || null;
