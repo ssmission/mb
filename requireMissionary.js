@@ -7,7 +7,7 @@ document.getElementById(pageDivId).remove();
 
 document.write(`<script src="https://accounts.google.com/gsi/client" async defer>
 </script><script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
-<img id="ssmLogoBIG_forSignIn" src="https://ssmission.github.io/ssm/img/ssmLogo.png" alt="ssmLogo">`);
+<img id="ssmLogoBIG_forSignIn" src="img/ssmLogo.png" alt="ssmLogo">`);
 
 document.head.innerHTML = `<style id="signInSTYLES">
 html, body, #ssmLogoBIG_forSignIn {
