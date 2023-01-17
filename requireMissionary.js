@@ -23,7 +23,7 @@ window.onload = function () {
     gBtn.id = 'google_btn';
     document.body.prepend(gBtn);
     google.accounts.id.initialize({
-        client_id: '1032123159845-v6r228c1sb4su1gdck40a2kctu8k8riu.apps.googleusercontent.com',
+        client_id: '586912630163-r9jcchrhcc8scts2sngcb325va5u0hkj.apps.googleusercontent.com',
         callback: handleGoogleLogin
     });
     const parent = document.getElementById('google_btn');
