@@ -27,7 +27,8 @@ window.onload = function () {
     document.body.prepend(gBtn);
     google.accounts.id.initialize({
         client_id: '586912630163-r9jcchrhcc8scts2sngcb325va5u0hkj.apps.googleusercontent.com',
-        callback: handleGoogleLogin
+        callback: handleGoogleLogin,
+        cancel_on_tap_outside: false
     });
     google.accounts.id.prompt((notification) => {
         if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
@@ -40,8 +41,7 @@ window.onload = function () {
                 theme: "outline",
                 text: "continue_with",
                 size: "large",
-                logo_alignment: "left",
-                cancel_on_tap_outside: false
+                logo_alignment: "left"
             });
             google.accounts.id.prompt();
         }
