@@ -68,14 +68,16 @@ function setUserInfoOnPage() {
     setAllValues('ssmUser.email', ssmUser.email);
 
     // set logout button(s)
-    document.querySelectorAll('.ssmUser.logout').forEach(el => {
-        el.onclick = LogoutOfSSM_MissionaryAccount;
-    });
+    const sa = document.getElementsByClassName('ssmUser.logout');
+    for (var i=0; i<sa.length; i++) {
+        sa.item(i).innerHTML = val;
+    }
 }
 function setAllValues(s, val) {
-    document.querySelectorAll('.' + s).forEach(el => {
-        el.innerHTML = val;
-    });
+    const sa = document.getElementsByClassName(s);
+    for (var i=0; i<sa.length; i++) {
+        sa.item(i).innerHTML = val;
+    }
 }
 function LogoutOfSSM_MissionaryAccount() {
     alert('logging out... at some point');
