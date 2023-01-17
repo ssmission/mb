@@ -70,7 +70,7 @@ function setUserInfoOnPage() {
     // set logout button(s)
     const sa = document.getElementsByClassName('ssmUser.logout');
     for (var i=0; i<sa.length; i++) {
-        sa.item(i).innerHTML = val;
+        sa.item(i).onclick = LogoutOfSSM_MissionaryAccount;
     }
 }
 function setAllValues(s, val) {
