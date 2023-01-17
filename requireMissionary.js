@@ -77,6 +77,9 @@ function setAllValues(s, val) {
         el.innerHTML = val;
     });
 }
+function LogoutOfSSM_MissionaryAccount() {
+    alert('logging out... at some point');
+}
 
 function handleGoogleLogin(response) {
     const responsePayload = jwt_decode(response.credential);
@@ -104,9 +107,6 @@ function handleGoogleLogin(response) {
         // clear login cookies
         document.write('<h2>Access Denied</h2><br><br>Sorry, you don\'t have access to this page because you\'re not a missionary. If you beleive this is a mistake, try <a href=".">logging in again with your missionary account</a>');
     }
-}
-function LogoutOfSSM_MissionaryAccount() {
-    alert('logging out... at some point');
 }
 function startGoogleSignIn() {
     const gBtn = document.createElement('DIV');
