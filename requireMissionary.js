@@ -5,7 +5,18 @@ if (pageDivId == null) {
 const pageDIV = document.getElementById(pageDivId).cloneNode(true);
 document.getElementById(pageDivId).remove();
 
-document.write('<script src="https://accounts.google.com/gsi/client" async defer></script><script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>');
+document.write(`<script src="https://accounts.google.com/gsi/client" async defer>
+</script><script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+<img id="ssmLogoBIG_forSignIn" src="https://ssmission.github.io/ssm/img/ssmLogo.png" alt="ssmLogo">`);
+
+document.head.innerHTML = `<style id="signInSTYLES">
+html, body, #ssmLogoBIG_forSignIn {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+</style>` + document.head.innerHTML;
+
 
 
 function handleGoogleLogin(response) {
@@ -15,6 +26,8 @@ function handleGoogleLogin(response) {
         document.body.prepend(pageDIV);
         document.getElementById(pageDivId).style.display = "";
         document.getElementById('google_btn').remove();
+        document.getElementById('signInSTYLES').remove();
+        document.getElementById('ssmLogoBIG_forSignIn').remove();
         // set images and stuff like that to see that their logged in
     } else {
         // clear login cookies
