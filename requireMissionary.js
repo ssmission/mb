@@ -17,8 +17,8 @@ function handleGoogleLogin(response) {
         document.getElementById('google_btn').remove();
         // set images and stuff like that to see that their logged in
     } else {
-        alert("Sorry, you don't have access to this page. If you beleive this is a mistake, try logging in again");
-        document.write("Sorry, you don't have access to this page. If you beleive this is a mistake, try logging in again");
+        // clear login cookies
+        document.write("<h2>Access Denied</h2><br><br>Sorry, you don't have access to this page. If you beleive this is a mistake, try <a href=".">logging in again</a>");
     }
 }
 window.onload = function () {
