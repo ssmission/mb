@@ -41,7 +41,7 @@ window.onload = function () {
                 text: "continue_with",
                 size: "large",
                 logo_alignment: "left",
-                cancel_on_tap_outside: "false"
+                cancel_on_tap_outside: false
             });
             google.accounts.id.prompt();
         }
