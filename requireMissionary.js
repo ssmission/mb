@@ -56,9 +56,22 @@ if (mustLogIn) {
     </style>` + document.head.innerHTML;
 } else {
     document.getElementById(pageDivId).style.display = "";
+    setUserInfoOnPage();
 }
 
+function setUserInfoOnPage() {
+    setAllValues('ssmUser.id', ssmUser.id);
+    setAllValues('ssmUser.full_name', ssmUser.full_name);
+    setAllValues('ssmUser.given_name', ssmUser.given_name);
+    setAllValues('ssmUser.family_name', ssmUser.family_name);
+    setAllValues('ssmUser.picture', ssmUser.picture);
+    setAllValues('ssmUser.email', ssmUser.email);
 
+    // set logout button(s)
+    document.getElementsByClassName('.ssmUser.logout').forEach(el => {
+        el.onclick = LogoutOfSSM_MissionaryAccount;
+    });
+}
 
 function handleGoogleLogin(response) {
     const responsePayload = jwt_decode(response.credential);
@@ -69,7 +82,7 @@ function handleGoogleLogin(response) {
         document.getElementById('signInSTYLES').remove();
         document.getElementById('ssmLogoBIG_forSignIn').remove();
 
-        // set images and stuff like that to see that their logged in
+        // set cookies
         ssmUser = {
             'id' : responsePayload.sub,
             'full_name' : responsePayload.name,
@@ -79,10 +92,21 @@ function handleGoogleLogin(response) {
             'email' : responsePayload.email,
         };
         setCookie('ssmUser', JSON.stringify(ssmUser));
+        
+        // set images and stuff like that to see that their logged in
+        setUserInfoOnPage();
     } else {
         // clear login cookies
         document.write('<h2>Access Denied</h2><br><br>Sorry, you don\'t have access to this page because you\'re not a missionary. If you beleive this is a mistake, try <a href=".">logging in again with your missionary account</a>');
     }
+}
+function LogoutOfSSM_MissionaryAccount() {
+    alert('logging out... at some point');
+}
+function setAllValues(s, val) {
+    document.getElementsByClassName('.' + s).forEach(el => {
+        el.innerHTML = val;
+    });
 }
 function startGoogleSignIn() {
     const gBtn = document.createElement('DIV');
