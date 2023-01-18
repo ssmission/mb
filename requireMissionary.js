@@ -106,11 +106,14 @@ function handleGoogleLogin(response) {
 }
 function startGoogleSignIn() {
     const mainPage = document.querySelectorAll('body >*:not(SCRIPT)');
+    const excludeIds = ['ssmLogoBIG_forSignIn', 'loadingCover'];
     mainPage.forEach(el => {
-        el.remove();
+        if (!excludeIds.includes(el.id)) {
+            el.remove();
+        }
     });
     
-    //document.getElementById('loadingCover').remove();
+    document.getElementById('loadingCover').remove();
     const gBtn = document.createElement('DIV');
     gBtn.id = 'google_btn';
     document.body.prepend(gBtn);
