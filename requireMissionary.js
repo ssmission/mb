@@ -35,13 +35,9 @@ if (ssmUserStr != '') {
     } catch (e) {}
 }
 
+document.write('<div id="loadingCover" style="position: fixed; height: 100%; width: 100%; top:0; left: 0; background: ' + (document.body.style.backgroundColor || 'white') + '; z-index:9999;"></div>')
 
-const mainPage = document.querySelectorAll('body >*:not(SCRIPT)');
 if (mustLogIn) {
-    mainPage.forEach(el => {
-        el.remove();
-    });
-
     document.write(`<script src="https://accounts.google.com/gsi/client" async defer>
     </script><script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
     <img id="ssmLogoBIG_forSignIn" src="img/ssmLogo.png" alt="ssmLogo">`);
@@ -53,8 +49,6 @@ if (mustLogIn) {
         object-fit: contain;
     }
     </style>` + document.head.innerHTML;
-} else {
-    setUserInfoOnPage();
 }
 
 function setUserInfoOnPage() {
@@ -102,7 +96,6 @@ function handleGoogleLogin(response) {
         setCookie('ssmUser', JSON.stringify(ssmUser));
         
         // set images and stuff like that to see that their logged in
-        setUserInfoOnPage();
         window.onbeforeunload = null;
         location.reload();
     } else {
@@ -111,6 +104,11 @@ function handleGoogleLogin(response) {
     }
 }
 function startGoogleSignIn() {
+    const mainPage = document.querySelectorAll('body >*:not(SCRIPT)');
+    mainPage.forEach(el => {
+        el.remove();
+    });
+    
     const gBtn = document.createElement('DIV');
     gBtn.id = 'google_btn';
     document.body.prepend(gBtn);
@@ -138,4 +136,7 @@ function startGoogleSignIn() {
 }
 if (mustLogIn) {
     window.onload = startGoogleSignIn;
+    document.getElementById('loadingCover').remove();
+} else {
+    setUserInfoOnPage();
 }
