@@ -35,6 +35,14 @@ if (ssmUserStr != '') {
     } catch (e) {}
 }
 
+/*
+use this instead:
+const mainPage = document.querySelectorAll('body >*:not(SCRIPT)');
+you can interate through with foreach
+and once you have an array for all of them you can delete the real ones without worrying
+then iterate through again and place them all back on the page when signed in!
+*/
+
 const pageDivId = document.currentScript.getAttribute('containerDIV') || null;
 if (pageDivId == null) {
     throw new Error('You must specify the page container to be hidden if not logged in. For instance: <script src="requireMissionary.js" containerDiv="mainPage"></script>');
