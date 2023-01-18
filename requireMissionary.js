@@ -70,7 +70,11 @@ function setUserInfoOnPage() {
 function setAllValues(s, val) {
     const sa = document.getElementsByClassName(s);
     for (var i=0; i<sa.length; i++) {
-        sa.item(i).innerHTML = val;
+        if (s.includes('picture')) {
+            sa.item(i).src = val;
+        } else {
+            sa.item(i).innerHTML = val;
+        }
     }
 }
 function LogoutOfSSM_MissionaryAccount() {
