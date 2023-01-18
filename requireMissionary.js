@@ -64,6 +64,7 @@ function setUserInfoOnPage() {
     for (var i=0; i<sa.length; i++) {
         sa.item(i).onclick = LogoutOfSSM_MissionaryAccount;
     }
+    document.getElementById('loadingCover').remove();
 }
 function setAllValues(s, val) {
     const sa = document.getElementsByClassName(s);
@@ -109,6 +110,7 @@ function startGoogleSignIn() {
         el.remove();
     });
     
+    document.getElementById('loadingCover').remove();
     const gBtn = document.createElement('DIV');
     gBtn.id = 'google_btn';
     document.body.prepend(gBtn);
@@ -136,7 +138,6 @@ function startGoogleSignIn() {
 }
 if (mustLogIn) {
     window.onload = startGoogleSignIn;
-    document.getElementById('loadingCover').remove();
 } else {
-    setUserInfoOnPage();
+    window.onload = setUserInfoOnPage;
 }
