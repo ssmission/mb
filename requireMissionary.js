@@ -35,21 +35,12 @@ if (ssmUserStr != '') {
     } catch (e) {}
 }
 
-/*
-use this instead:
-const mainPage = document.querySelectorAll('body >*:not(SCRIPT)');
-you can interate through with foreach
-and once you have an array for all of them you can delete the real ones without worrying
-then iterate through again and place them all back on the page when signed in!
-*/
 
-const pageDivId = document.currentScript.getAttribute('containerDIV') || null;
-if (pageDivId == null) {
-    throw new Error('You must specify the page container to be hidden if not logged in. For instance: <script src="requireMissionary.js" containerDiv="mainPage"></script>');
-}
-const pageDIV = document.getElementById(pageDivId).cloneNode(true);
+const mainPage = document.querySelectorAll('body >*:not(SCRIPT)');
 if (mustLogIn) {
-    document.getElementById(pageDivId).remove();
+    mainPage.forEach(el => {
+        el.remove();
+    });
 
     document.write(`<script src="https://accounts.google.com/gsi/client" async defer>
     </script><script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
@@ -63,7 +54,6 @@ if (mustLogIn) {
     }
     </style>` + document.head.innerHTML;
 } else {
-    document.getElementById(pageDivId).style.display = "";
     setUserInfoOnPage();
 }
 
@@ -96,8 +86,6 @@ function LogoutOfSSM_MissionaryAccount() {
 function handleGoogleLogin(response) {
     const responsePayload = jwt_decode(response.credential);
     if (responsePayload.email.split('@')[1].toLowerCase().includes('missionary.org') || responsePayload.email.split('@')[1].toLowerCase().includes('churchofjesuschrist.org')) {
-        document.body.prepend(pageDIV);
-        document.getElementById(pageDivId).style.display = "";
         document.getElementById('google_btn').remove();
         document.getElementById('signInSTYLES').remove();
         document.getElementById('ssmLogoBIG_forSignIn').remove();
@@ -115,6 +103,8 @@ function handleGoogleLogin(response) {
         
         // set images and stuff like that to see that their logged in
         setUserInfoOnPage();
+        window.onbeforeunload = null;
+        location.reload();
     } else {
         // clear login cookies
         document.write('<h2>Access Denied</h2><br><br>Sorry, you don\'t have access to this page because you\'re not a missionary. If you beleive this is a mistake, try <a href=".">logging in again with your missionary account</a>');
