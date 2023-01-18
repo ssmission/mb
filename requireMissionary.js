@@ -36,16 +36,11 @@ if (ssmUserStr != '') {
 }
 
 
-const mainPage = document.querySelectorAll('body >*:not(SCRIPT)');
 if (mustLogIn) {
-    mainPage.forEach(el => {
-        el.remove();
-    });
-
     document.write(`<script src="https://accounts.google.com/gsi/client" async defer>
     </script><script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
     <img id="ssmLogoBIG_forSignIn" src="img/ssmLogo.png" alt="ssmLogo">`);
-
+    
     document.head.innerHTML = `<style id="signInSTYLES">
     html, body, #ssmLogoBIG_forSignIn {
         width: 100%;
@@ -53,6 +48,7 @@ if (mustLogIn) {
         object-fit: contain;
     }
     </style>` + document.head.innerHTML;
+    window.stop();
 } else {
     setUserInfoOnPage();
 }
