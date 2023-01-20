@@ -120,10 +120,6 @@ function handleGoogleLogin(response) {
         document.write('<h2>Access Denied</h2><br><br>Sorry, you don\'t have access to this page because you\'re not a missionary. If you beleive this is a mistake, try <a href=".">logging in again with your missionary account</a>');
     }
 }
-function isFacebookBrowser() {
-    var ua = navigator.userAgent || navigator.vendor || window.opera;
-    return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
-}
 function startGoogleSignIn() {
     const mainPage = document.querySelectorAll('body >*:not(SCRIPT)');
     const excludeIds = ['ssmLogoBIG_forSignIn', 'loadingCover'];
@@ -137,20 +133,11 @@ function startGoogleSignIn() {
     const gBtn = document.createElement('DIV');
     gBtn.id = 'google_btn';
     document.body.prepend(gBtn);
-    if(true) { //isFacebookBrowser()
-        google.accounts.id.initialize({
-            client_id: '586912630163-r9jcchrhcc8scts2sngcb325va5u0hkj.apps.googleusercontent.com',
-            ux_mode: "redirect",
-            login_uri: 'https://www.httpbin.org/post',
-            cancel_on_tap_outside: false
-        });
-    } else {
-        google.accounts.id.initialize({
-            client_id: '586912630163-r9jcchrhcc8scts2sngcb325va5u0hkj.apps.googleusercontent.com',
-            callback: handleGoogleLogin,
-            cancel_on_tap_outside: false
-        });
-    }
+    google.accounts.id.initialize({
+        client_id: '586912630163-r9jcchrhcc8scts2sngcb325va5u0hkj.apps.googleusercontent.com',
+        callback: handleGoogleLogin,
+        cancel_on_tap_outside: false
+    });
     google.accounts.id.prompt((notification) => {
         if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
             // try next provider if OneTap is not displayed or skipped
