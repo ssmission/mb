@@ -40,10 +40,21 @@ document.write('<div id="loadingCover" style="position: fixed; height: 100%; wid
 if (mustLogIn) {
     document.write(`<script src="https://accounts.google.com/gsi/client" async defer>
     </script><script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
-    <img id="ssmLogoBIG_forSignIn" src="img/ssmLogo.png" alt="ssmLogo">`);
+    <img id="ssmLogoBIG_forSignIn" src="/ssm/img/JesusAtTiberias.jpg" alt="ssmLogo">`);
 
     document.head.innerHTML = `<style id="signInSTYLES">
-    html, body, #ssmLogoBIG_forSignIn {
+    html, body {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        overflow: hidden;
+        background-image: url("/ssm/img/JesusAtTiberias_blurred.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+    #ssmLogoBIG_forSignIn {
         width: 100%;
         height: 100%;
         object-fit: contain;
