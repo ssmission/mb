@@ -1,5 +1,9 @@
 <script>
-if (document.documentElement.classList.contains('in-app-browser')) {
+function isFacebookApp() {
+    var ua = navigator.userAgent || navigator.vendor || window.opera;
+    return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
+}
+if (isFacebookApp()) {
   alert('messenger browser');
 } else {
   alert('*_NOT_* messenger browser');
