@@ -140,6 +140,7 @@ function startGoogleSignIn() {
     if(true) { //isFacebookBrowser()
         google.accounts.id.initialize({
             client_id: '1032123159845-v6r228c1sb4su1gdck40a2kctu8k8riu.apps.googleusercontent.com',
+            ux_mode: "redirect",
             login_uri: 'https://www.httpbin.org/post',
             cancel_on_tap_outside: false
         });
