@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSMissionary</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+</head>
+<body>
+
+<div id="g_id_onload"
+     data-client_id="1032123159845-v6r228c1sb4su1gdck40a2kctu8k8riu.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="redirect"
+     data-login_uri="https://www.httpbin.org/post"
+     data-auto_prompt="false">
+</div>
+
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="rectangular"
+     data-theme="filled_black"
+     data-text="signin"
+     data-size="large"
+     data-logo_alignment="left">
+</div>
+<script>
+function handleGoogleLogin(response) {
+    // decodeJwtResponse() is a custom function defined by you
+    // to decode the credential response.
+    console.log(response);
+    const responsePayload = jwt_decode(response.credential);
+
+    console.log("ID: " + responsePayload.sub);
+    console.log('Full Name: ' + responsePayload.name);
+    console.log('Given Name: ' + responsePayload.given_name);
+    console.log('Family Name: ' + responsePayload.family_name);
+    console.log("Image URL: " + responsePayload.picture);
+    console.log("Email: " + responsePayload.email);
+    alert("Email: " + responsePayload.email);
+}
+</script>
+
+</body>
+</html>
