@@ -1,9 +1,14 @@
-const Videos = {
+const Videos = { 
     "Extra Videos" : {
         "The Christ Child" : {
             "thumbnail" : "",
             "driveId" : "https://media2.ldscdn.org/assets/missionary/christmas-2019/2019-09-0050-the-christ-child-a-nativity-story-lighttheworld-720p-eng.mp4",
             "desc" : "The new depiction of the Nativity story recounts in beautiful detail the sacred events found in the Bible about Jesus's birth over 2,000 years ago."
+        },
+        "Joseph Smith: The Prophet of the Restoration" : {
+            "thumbnail" : "",
+            "driveId" : "https://media2.ldscdn.org/assets/feature-films/joseph-smith-the-prophet-of-the-restoration/2011-03-01-joseph-smith-the-prophet-of-the-restoration-1080p-eng.mp4",
+            "desc" : "A motion picture about the life and legacy of Joseph Smith, the founding prophet of The Church of Jesus Christ of Latter-day Saints."
         }
     },
     "Chosen 1" : {
