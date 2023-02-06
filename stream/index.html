@@ -3,6 +3,8 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://vjs.zencdn.net/8.0.3/video-js.css" rel="stylesheet">
+<link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
 <style>
 :root {
     --white: #c4c4c4;
@@ -182,7 +184,15 @@ html, body {
 <img class="mlogo" src="https://confreports.org/ssmLogo.png" alt="SSM Logo">
 
 <div id="mainPlayerBox">
-    <video id="videoEl" controls src=""></video>
+    <video
+    id="videoEl"
+    class="video-js vjs-theme-forest"
+    controls
+    preload="auto"
+    data-setup="{}"
+    src="" >
+        <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that<a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+    </video>
 </div>
 
 <div id="infoBox">
@@ -215,7 +225,7 @@ function selEp(sN, el) {
     _('descriptionBox').innerHTML = Ep.desc;
     
     if (!sN.toLowerCase().includes('chosen')) {
-        _('mainPlayerBox').innerHTML = '<video controls id="videoEl" src="' + Ep.driveId + '"></video>';
+        _('mainPlayerBox').innerHTML = '<video id="videoEl" class="video-js" controls preload="auto" poster="MY_VIDEO_POSTER.jpg" data-setup="{}" src="' + Ep.driveId + '"><p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that<a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p></video>';
     } else {
         let allowFullScreen = ' allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"';
         _('mainPlayerBox').innerHTML = '<iframe id="videoEl" src="https://drive.google.com/file/d/' + Ep.driveId + '/preview"' + allowFullScreen + '></iframe>';
@@ -257,6 +267,7 @@ function sidenavDropdown(e) {
 }
 toggleNav();
 </script>
+<script src="https://vjs.zencdn.net/8.0.3/video.min.js"></script>
    
 </body>
 </html> 
