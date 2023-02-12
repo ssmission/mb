@@ -227,14 +227,13 @@ function selEp(sN, el) {
     
     if (currentVideojsPlayer != null) { currentVideojsPlayer.dispose(); }
     currentVideojsPlayer = null;
-    if (!sN.toLowerCase().includes('chosen')) {
-        _('mainPlayerBox').innerHTML = '<video id="videoEl" class="video-js" controls preload="auto" src="' + Ep.driveId + '"><p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that<a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p></video>';
-        currentVideojsPlayer = videojs(_('videoEl'));
-    } else {
+    if (Ep.url == 'googledrive') {
         let allowFullScreen = ' allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"';
         _('mainPlayerBox').innerHTML = '<iframe id="videoEl" src="https://drive.google.com/file/d/' + Ep.driveId + '/preview"' + allowFullScreen + '></iframe>';
+    } else {
+        _('mainPlayerBox').innerHTML = '<video id="videoEl" class="video-js" controls preload="auto" src="' + Ep.url + '"><p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that<a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p></video>';
+        currentVideojsPlayer = videojs(_('videoEl'));
     }
-    
 }
 
 function populateNav(pre = "") {
