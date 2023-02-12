@@ -111,6 +111,56 @@ const Videos = {
             "desc" : "While Jesus and Matthew prepare the content of the big sermon, the disciples spread the word while fighting amongst themselves. A high-ranking Sanhedrin member is shocked by Shmuel's reports on Jesus. Thousands arrive for the sermon, including familiar faces."
         }
     },
+    "Chosen 3" : {
+        "Homecoming" : {
+            "thumbnail" : "",
+            "url" : "googledrive",
+            "driveId" : "16pKAeZX4ZAXvtxX_U3mrbGjdNYZQC6O5",
+            "desc" : ""
+        },
+        "Two by Two" : {
+            "thumbnail" : "",
+            "url" : "googledrive",
+            "driveId" : "1ktuUKFWB9_hL8i4evUb4W3NXi-zgFSrt",
+            "desc" : ""
+        },
+        "Physician, Heal Yourself" : {
+            "thumbnail" : "",
+            "url" : "googledrive",
+            "driveId" : "1A1DH4ZqZvLYbtjQY_U85hNAc-pOFDD23",
+            "desc" : ""
+        },
+        "Clean, Part 1" : {
+            "thumbnail" : "",
+            "url" : "googledrive",
+            "driveId" : "1YlKk5rin0PFdOzU_PpHD4jOr0wVOgkVQ",
+            "desc" : ""
+        },
+        "Clean, Part 2" : {
+            "thumbnail" : "",
+            "url" : "googledrive",
+            "driveId" : "1Y_U4DhBHSkaYnjj7HE0UZTy6dpdYXe62",
+            "desc" : ""
+        },
+        "Intensity in Tent City" : {
+            "thumbnail" : "",
+            "url" : "googledrive",
+            "driveId" : "1PkrWlCQUQ1OAvde1cpgQJBTCOttvHnnO",
+            "desc" : ""
+        },
+        "Ears to Hear" : {
+            "thumbnail" : "",
+            "url" : "googledrive",
+            "driveId" : "1Hycmmbse7CMeiIrDbNZLRXsH_2Of2cwN",
+            "desc" : ""
+        },
+        "Sustenance" : {
+            "thumbnail" : "",
+            "url" : "googledrive",
+            "driveId" : "",
+            "desc" : ""
+        }
+    },
     "BoM Videos" : {
         "1 Nephi 1-2" : {
             "thumbnail" : "",
