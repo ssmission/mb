@@ -37,7 +37,7 @@ if (ssmUserStr != '') {
 
 document.write('<div id="loadingCover" style="position: fixed; height: 100%; width: 100%; top:0; left: 0; background: ' + (document.body.style.backgroundColor || 'white') + '; z-index:9999;"></div>')
 
-if (mustLogIn && false) {
+if (mustLogIn) {
     document.write(`<script src="https://accounts.google.com/gsi/client" async defer>
     </script><script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
     <img id="ssmLogoBIG_forSignIn" src="/ssm/img/ssmLogo.png" alt="ssmLogo">`);
@@ -134,7 +134,7 @@ function startGoogleSignIn() {
     gBtn.id = 'google_btn';
     document.body.prepend(gBtn);
     google.accounts.id.initialize({
-        client_id: '586912630163-r9jcchrhcc8scts2sngcb325va5u0hkj.apps.googleusercontent.com',
+        client_id: '808652995711-phk9l41oplk3p5cmee6na90261dtbpi0.apps.googleusercontent.com',
         callback: handleGoogleLogin,
         cancel_on_tap_outside: false
     });
