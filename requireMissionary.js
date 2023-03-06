@@ -37,7 +37,7 @@ if (ssmUserStr != '') {
 
 document.write('<div id="loadingCover" style="position: fixed; height: 100%; width: 100%; top:0; left: 0; background: ' + (document.body.style.backgroundColor || 'white') + '; z-index:9999;"></div>')
 
-if (mustLogIn) {
+if (mustLogIn && false) {
     document.write(`<script src="https://accounts.google.com/gsi/client" async defer>
     </script><script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
     <img id="ssmLogoBIG_forSignIn" src="/ssm/img/ssmLogo.png" alt="ssmLogo">`);
